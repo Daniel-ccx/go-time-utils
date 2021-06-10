@@ -7,7 +7,7 @@ import (
 type  DateTimeUtils struct{
     time time.Time
 }
-var timeLayout = "2006-01-02 15:04:05"
+var TimeLayout = "2006-01-02 15:04:05"
 // FirstDayWeekDay 一年第一天是周几
 func (dt *DateTimeUtils ) FirstDayWeekDay() (weekday int) {
     yday := dt.time.YearDay()
