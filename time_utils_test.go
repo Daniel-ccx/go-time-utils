@@ -12,7 +12,15 @@ func runFuncName()string{
     f := runtime.FuncForPC(pc[0])
     return f.Name()
 }
-
+func TestPassedWeekdayCount(t *testing.T) {
+    dt := StrToTime("2021-06-07 10:10:10")
+    dtu := &DateTimeUtils{
+        Time: dt,
+    }
+    wday :=3
+    passedCount := dtu.PassedWeekdayCount(wday)
+    println("已过去", passedCount, "个周", wday)
+}
 func TestFirstDayWeekDay(t *testing.T) {
     println(runFuncName())
     dt := StrToTime("2021-06-09 10:10:10")

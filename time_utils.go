@@ -27,6 +27,7 @@ func (dt *DateTimeUtils ) Weekth() (weekth int) {
     yFirstDayTime := dt.Time.AddDate(0, 0, -yday + 1)
     // 元旦是周几
     firstDayWeekDay := int(yFirstDayTime.Weekday())
+    println("yday:", yday, "firstDayWeekDay", firstDayWeekDay)
     // 第一周有几天
     firstWeekDays := 1
     if firstDayWeekDay != 0 {
@@ -34,7 +35,7 @@ func (dt *DateTimeUtils ) Weekth() (weekth int) {
     }
     weekth = 1
     if yday > firstWeekDays {
-        weekth = (yday - firstWeekDays)/7 + 1 + 1
+        weekth = (yday - firstWeekDays)/7 + 1
     }
     return
 }
@@ -59,6 +60,23 @@ func (dt *DateTimeUtils)Weekday() (weekday int) {
     weekday = int(wday)
     if weekday == 0 {
         weekday = 7
+    }
+    return
+}
+// PassedWeekdayCount 计算已过去多少个周几
+func (dt *DateTimeUtils)PassedWeekdayCount(weekday int) (counter int) {
+    dtWeekday := dt.Weekday()
+    weekth := dt.Weekth()
+    counter = weekth
+    if dtWeekday < weekday {
+        counter = weekth - 1
+    }
+    println("PassedWeekdayCount1:", counter)
+    // 下面要累计或排除新年第一周的数据
+    firstDayWeekDay := dt.FirstDayWeekDay()
+    if firstDayWeekDay > weekday {
+        counter = counter - 1
+        println("PassedWeekdayCount:", counter)
     }
     return
 }
