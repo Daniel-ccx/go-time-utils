@@ -18,7 +18,7 @@ func TestFirstDayWeekDay(t *testing.T) {
     dt := StrToTime("2021-06-09 10:10:10")
 
     dtu := &DateTimeUtils{
-        time: dt,
+        Time: dt,
     }
     openDays := map[int]int{2:2, 4:4, 7:7}
     println(openDays[dtu.FirstDayWeekDay()], "=tessssss")
@@ -29,7 +29,7 @@ func TestWeekth(t *testing.T) {
     dt := StrToTime("2021-01-03 10:10:10")
 
     dtu := &DateTimeUtils{
-        time: dt,
+       dt,
     }
     println("2021年第 ", dtu.Weekth(), " 周的周 ", dtu.Weekday())
 }
@@ -38,7 +38,7 @@ func TestWeekday(t *testing.T) {
     dt := StrToTime("2021-01-03 10:10:10")
 
     dtu := &DateTimeUtils{
-        time: dt,
+         dt,
     }
     println(dtu.Weekday())
 }

@@ -5,14 +5,14 @@ import (
 )
 // DateTimeUtils 获取周几，几月 数字和英文
 type  DateTimeUtils struct{
-    time time.Time
+    Time time.Time
 }
 var TimeLayout = "2006-01-02 15:04:05"
 // FirstDayWeekDay 一年第一天是周几
 func (dt *DateTimeUtils ) FirstDayWeekDay() (weekday int) {
-    yday := dt.time.YearDay()
+    yday := dt.Time.YearDay()
     // 新年第一天
-    yFirstDayTime := dt.time.AddDate(0, 0, -yday + 1)
+    yFirstDayTime := dt.Time.AddDate(0, 0, -yday + 1)
     // 元旦是周几
     weekday = int(yFirstDayTime.Weekday())
     if weekday == 0 {
@@ -22,9 +22,9 @@ func (dt *DateTimeUtils ) FirstDayWeekDay() (weekday int) {
 }
 // Weekth 获取时间是第几周
 func (dt *DateTimeUtils ) Weekth() (weekth int) {
-    yday := dt.time.YearDay()
+    yday := dt.Time.YearDay()
     // 新年第一天
-    yFirstDayTime := dt.time.AddDate(0, 0, -yday + 1)
+    yFirstDayTime := dt.Time.AddDate(0, 0, -yday + 1)
     // 元旦是周几
     firstDayWeekDay := int(yFirstDayTime.Weekday())
     // 第一周有几天
@@ -40,22 +40,22 @@ func (dt *DateTimeUtils ) Weekth() (weekth int) {
 }
 func (dt *DateTimeUtils) Ymd() (int,int,int) {
 
-    y, m1, d := dt.time.Date()
+    y, m1, d := dt.Time.Date()
     m := int(m1)
     return y, m, d
 }
 func (dt *DateTimeUtils) Month() (m int, s string) {
-    month := dt.time.Month()
+    month := dt.Time.Month()
     return int(month), month.String()
 }
 // Dayth 获取时间是一年第几天
 func (dt *DateTimeUtils ) Dayth() int {
 
-    return dt.time.YearDay()
+    return dt.Time.YearDay()
 }
 // Weekday 获取指定日期是周几
 func (dt *DateTimeUtils)Weekday() (weekday int) {
-    wday := dt.time.Weekday()
+    wday := dt.Time.Weekday()
     weekday = int(wday)
     if weekday == 0 {
         weekday = 7
