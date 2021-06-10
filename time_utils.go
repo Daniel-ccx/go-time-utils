@@ -72,7 +72,7 @@ func StrTimeDiff(maxTime string, minTime string) time.Duration {
 }
 func StrToTime(dateStr string) time.Time {
     //ts := time.Now().Format(timeLayout)
-    tt, _ := time.Parse(timeLayout, dateStr)
+    tt, _ := time.Parse(TimeLayout, dateStr)
     return tt
 }
 
