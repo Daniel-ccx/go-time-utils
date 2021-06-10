@@ -13,11 +13,11 @@ func runFuncName()string{
     return f.Name()
 }
 func TestPassedWeekdayCount(t *testing.T) {
-    dt := StrToTime("2021-06-07 10:10:10")
+    dt := StrToTime("2021-06-10 10:10:10")
     dtu := &DateTimeUtils{
         Time: dt,
     }
-    wday :=3
+    wday := 4
     passedCount := dtu.PassedWeekdayCount(wday)
     println("已过去", passedCount, "个周", wday)
 }
@@ -36,10 +36,10 @@ func TestWeekth(t *testing.T) {
     println(runFuncName())
     dt := StrToTime("2021-01-03 10:10:10")
 
-    dtu := &DateTimeUtils{
+    _ = &DateTimeUtils{
        dt,
     }
-    println("2021年第 ", dtu.Weekth(), " 周的周 ", dtu.Weekday())
+    //println("2021年第 ", dtu.Weekth(), " 周的周 ", dtu.Weekday())
 }
 func TestWeekday(t *testing.T) {
     println(runFuncName())
@@ -52,15 +52,15 @@ func TestWeekday(t *testing.T) {
 }
 func TestStrToTime(t *testing.T) {
     println(runFuncName())
-    tt := StrToTime("2020-10-01 10:10:10")
-    println(tt.String())
+    _ = StrToTime("2020-10-01 10:10:10")
+    //println(tt.String())
 }
 func TestStrTimeDiff(t *testing.T) {
     println(runFuncName())
 
-    sub := StrTimeDiff("2021-10-01 10:10:10", "2021-10-01 00:10:00")
+    _ = StrTimeDiff("2021-10-01 10:10:10", "2021-10-01 00:10:00")
 
-    println(float64ToStr(sub.Hours()), float64ToStr(sub.Seconds()))
+    //println(float64ToStr(sub.Hours()), float64ToStr(sub.Seconds()))
 }
 func float64ToStr(f float64) string {
     return strconv.FormatFloat(f, 'f', -1, 64)

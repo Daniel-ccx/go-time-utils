@@ -71,12 +71,11 @@ func (dt *DateTimeUtils)PassedWeekdayCount(weekday int) (counter int) {
     if dtWeekday < weekday {
         counter = weekth - 1
     }
-    println("PassedWeekdayCount1:", counter)
+
     // 下面要累计或排除新年第一周的数据
     firstDayWeekDay := dt.FirstDayWeekDay()
-    if firstDayWeekDay > weekday {
+    if firstDayWeekDay < weekday {
         counter = counter - 1
-        println("PassedWeekdayCount:", counter)
     }
     return
 }
