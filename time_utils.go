@@ -8,6 +8,9 @@ type  DateTimeUtils struct{
     Time time.Time
 }
 var TimeLayout = "2006-01-02 15:04:05"
+var TimeLayoutZh = "2006年01月02日 15:04:05"
+var TimeLayoutZhDate = "2006年01月02日"
+var TimeLayoutZhDateNo = "2006年1月2日"
 // FirstDayWeekDay 一年第一天是周几
 func (dt *DateTimeUtils ) FirstDayWeekDay() (weekday int) {
     yday := dt.Time.YearDay()
@@ -74,7 +77,7 @@ func (dt *DateTimeUtils)PassedWeekdayCount(weekday int) (counter int) {
 
     // 下面要累计或排除新年第一周的数据
     firstDayWeekDay := dt.FirstDayWeekDay()
-    if firstDayWeekDay < weekday {
+    if firstDayWeekDay > weekday {
         counter = counter - 1
     }
     return
@@ -92,4 +95,16 @@ func StrToTime(dateStr string) time.Time {
     tt, _ := time.Parse(TimeLayout, dateStr)
     return tt
 }
+func StrToTimeZh(dateStr string) time.Time {
+    tt, _ := time.Parse(TimeLayoutZh, dateStr)
+    return tt
+}
 
+func StrToTimeZhDate(dateStr string) time.Time {
+    tt, _ := time.Parse(TimeLayoutZhDate, dateStr)
+    return tt
+}
+func StrToTimeZhDateNo(dateStr string) time.Time {
+    tt, _ := time.Parse(TimeLayoutZhDateNo, dateStr)
+    return tt
+}

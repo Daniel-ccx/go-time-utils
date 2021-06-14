@@ -13,13 +13,17 @@ func runFuncName()string{
     return f.Name()
 }
 func TestPassedWeekdayCount(t *testing.T) {
-    dt := StrToTime("2021-06-10 10:10:10")
+    dt := StrToTime("2021-06-08 10:10:10")
     dtu := &DateTimeUtils{
         Time: dt,
     }
-    wday := 4
+    wday := 2
     passedCount := dtu.PassedWeekdayCount(wday)
-    println("已过去", passedCount, "个周", wday)
+    wday4 := 4
+    passedCount4 := dtu.PassedWeekdayCount(wday4)
+    wday7 := 7
+    passedCount7 := dtu.PassedWeekdayCount(wday7)
+    println("已过去", passedCount, "个周", wday, passedCount4, passedCount7)
 }
 func TestFirstDayWeekDay(t *testing.T) {
     println(runFuncName())
