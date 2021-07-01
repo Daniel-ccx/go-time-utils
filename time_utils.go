@@ -8,6 +8,7 @@ type  DateTimeUtils struct{
     Time time.Time
 }
 var TimeLayout = "2006-01-02 15:04:05"
+var TimeLayoutDate = "2006-01-02"
 var TimeLayoutZh = "2006年01月02日 15:04:05"
 var TimeLayoutZhDate = "2006年01月02日"
 var TimeLayoutZhDateNo = "2006年1月2日"
@@ -90,11 +91,19 @@ func StrTimeDiff(maxTime string, minTime string) time.Duration {
     result := max.Sub(min)
     return result
 }
+// StrToTime "2021-06-29 12:00:01"
 func StrToTime(dateStr string) time.Time {
     //ts := time.Now().Format(timeLayout)
     tt, _ := time.Parse(TimeLayout, dateStr)
     return tt
 }
+// StrToTimeDate "2021-06-29"
+func StrToTimeDate(dateStr string) time.Time {
+    tt, _ := time.Parse(TimeLayoutDate, dateStr)
+    return tt
+}
+
+// StrToTimeZh "2021年06月29日 12:00:01"
 func StrToTimeZh(dateStr string) time.Time {
     tt, _ := time.Parse(TimeLayoutZh, dateStr)
     return tt

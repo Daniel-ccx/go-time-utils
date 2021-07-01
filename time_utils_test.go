@@ -1,6 +1,7 @@
 package go_time_utils
 
 import (
+    "fmt"
     "runtime"
     "strconv"
     "testing"
@@ -11,6 +12,11 @@ func runFuncName()string{
     runtime.Callers(2,pc)
     f := runtime.FuncForPC(pc[0])
     return f.Name()
+}
+func TestStrToTimeDate(t *testing.T) {
+    println(runFuncName())
+    dt := StrToTimeDate("2021-06-29")
+    fmt.Printf("%v", dt)
 }
 func TestPassedWeekdayCount(t *testing.T) {
     dt := StrToTime("2021-06-08 10:10:10")
@@ -25,6 +31,7 @@ func TestPassedWeekdayCount(t *testing.T) {
     passedCount7 := dtu.PassedWeekdayCount(wday7)
     println("已过去", passedCount, "个周", wday, passedCount4, passedCount7)
 }
+
 func TestFirstDayWeekDay(t *testing.T) {
     println(runFuncName())
     dt := StrToTime("2021-06-09 10:10:10")
